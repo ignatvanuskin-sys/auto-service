@@ -24,7 +24,7 @@ export default function Home() {
         <div className="grid gap-5 hero-reveal">
           <div className="eyebrow">Монстр Трек · Алматы · с 2018 года</div>
           <div className="inline-flex items-center gap-2 text-[13px] font-bold bg-[#78b8831c] text-[#9bd6a2] border border-[#78b88340] rounded-full px-3 py-1.5 w-fit">
-            <span className="h-2 w-2 rounded-full bg-[#78b883] shadow-[0_0_12px_#78b883]" /> Сегодня есть свободные слоты
+            <span className="h-2 w-2 rounded-full bg-[#78b883] shadow-[0_0_12px_#78b883]" /> Онлайн-запись · без звонков
           </div>
           <h1 className="display-title text-5xl md:text-7xl font-black">
             Уверенность<br /><span className="text-[#c51f35]">за рулём.</span>
@@ -39,15 +39,13 @@ export default function Home() {
           <TrustRow />
         </div>
         <div className="card p-7 grid gap-4 hero-reveal-delay">
-          <div className="flex items-start justify-between gap-4"><div><div className="eyebrow">Онлайн-запись</div><div className="font-black text-2xl mt-1">Выберите время</div></div><div className="text-3xl">✦</div></div>
-          <div className="grid grid-cols-3 gap-2 text-center font-bold">
-            {["10:00", "12:00", "15:00", "16:00", "17:00", "18:00"].map((t) => (
-              <Link key={t} href={`/booking?step=3`} className="border border-[#ffffff1c] rounded-xl py-3 hover:border-[#c51f35] hover:bg-[#c51f351c]">
-                Сегодня {t}
-              </Link>
-            ))}
-          </div>
-          <p className="text-sm text-[#aaa19a]">Живой календарь показывает только реальные свободные окна.</p>
+          <div className="flex items-start justify-between gap-4"><div><div className="eyebrow">Онлайн-запись</div><div className="font-black text-2xl mt-1">Три шага до визита</div></div><div className="text-3xl">✦</div></div>
+          <ol className="grid gap-2 text-[15px] font-medium">
+            <li><b>1.</b> Опишите проблему или выберите услугу</li>
+            <li><b>2.</b> Укажите авто — марка, модель, год</li>
+            <li><b>3.</b> Выберите свободное окно в живом календаре</li>
+          </ol>
+          <p className="text-sm text-[#aaa19a]">Календарь показывает только реально свободное время. Подтверждение и напоминания — в мессенджер.</p>
           <Link href="/booking" className="btn-primary">Выбрать время →</Link>
         </div>
         </div>
@@ -81,21 +79,17 @@ export default function Home() {
       </section>
 
       <section className="mx-auto max-w-6xl px-4 mt-14">
-        <h2 className="text-2xl font-extrabold mb-4">Отзывы с деталями</h2>
-        <div className="grid md:grid-cols-3 gap-4">
-          {[
-            { t: "Меняли рычаги и стойки на Camry 2018. Смета 86 000 ₸ — в неё и уложились за 1 день. Стук ушёл.", m: "Toyota Camry · ходовая · 86 000 ₸" },
-            { t: "Делали ТО-60 с заменой масла АКПП на Tucson. Показали старое масло, отдали канистру остатка. Пригнали за 3 часа.", m: "Hyundai Tucson · ТО · 54 000 ₸" },
-            { t: "Перестала заводиться во дворе — эвакуатор и диагностика в тот же вечер. Оказался стартер, 38 000 ₸ под ключ.", m: "Kia Rio · электрика · 38 000 ₸" },
-          ].map((r, i) => (
-            <div key={i} className="card p-5 grid gap-2">
-              <div>★★★★★</div>
-              <p className="text-sm">{r.t}</p>
-              <div className="text-[13px] font-bold opacity-60">{r.m}</div>
-            </div>
-          ))}
+        <div className="card p-6 md:p-8 grid md:grid-cols-2 gap-4 items-center">
+          <div>
+            <div className="eyebrow">Обратная связь</div>
+            <h2 className="text-2xl md:text-3xl font-black mt-1">Обслуживались у нас? Расскажите, как всё прошло</h2>
+            <p className="text-[#aaa19a] mt-2">Публикуем отзывы с деталями — что делали, сколько заняло и стоило. Первые отзывы появятся здесь после запуска.</p>
+          </div>
+          <div className="flex flex-wrap gap-3 md:justify-end">
+            <Link href="/booking" className="btn-primary">Записаться на визит</Link>
+            <Link href="/reviews" className="btn-secondary">Страница отзывов</Link>
+          </div>
         </div>
-        <div className="mt-4"><Link href="/reviews" className="font-bold underline">Все отзывы →</Link></div>
       </section>
 
       <section className="mx-auto max-w-6xl px-4 mt-14 card p-6 grid md:grid-cols-2 gap-4 items-center">

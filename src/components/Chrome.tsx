@@ -103,10 +103,10 @@ export function StickyMobileBar() {
 export function TrustRow() {
   return (
     <div className="flex flex-wrap gap-2 text-[13px] font-semibold">
-      <span className="card px-3 py-1.5">★ {site.rating} — {site.reviewCount} отзывов</span>
-      <span className="card px-3 py-1.5">{site.carsServiced} обслуженных авто</span>
-      <span className="card px-3 py-1.5">{site.yearsOnMarket} лет на рынке</span>
-      <span className="badge-warranty">{site.warranty}</span>
+      <span className="card px-3 py-1.5">Письменная смета до начала работ</span>
+      <span className="card px-3 py-1.5">Гарантия до 12 месяцев</span>
+      <span className="card px-3 py-1.5">Онлайн-запись за 60 секунд</span>
+      <span className="badge-warranty">Напоминания о визите и ТО</span>
     </div>
   );
 }

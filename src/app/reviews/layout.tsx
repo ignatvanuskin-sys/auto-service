@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Отзывы с деталями — марка, услуга, цена | GearFlow",
-  description: "Реальные отзывы с деталями: что делали, сколько заняло и стоило. Рейтинг 4.9 из 1 240 отзывов.",
+  description: "Отзывы клиентов автосервиса: публикуем с деталями — что делали, сколько заняло и стоило.",
   alternates: { canonical: "/reviews" },
 };
 
