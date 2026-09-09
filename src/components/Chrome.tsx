@@ -5,15 +5,15 @@ import { site } from "@/lib/site";
 export function Header() {
   return (
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-[#eee5d8]">
-      <div className="mx-auto max-w-6xl px-4 h-16 flex items-center justify-between gap-3">
-        <Link href="/" aria-label="Монстр Трек — на главную" className="flex items-center shrink-0">
+      <div className="mx-auto max-w-6xl px-4 h-[76px] flex items-center justify-between gap-3">
+        <Link href="/" aria-label="Монстр Трек — на главную" className="flex items-center shrink-0 group">
           <Image
             src="/brand/monster-truck-logo.png"
             alt="Монстр Трек — автосервис"
             width={72}
             height={64}
             priority
-            className="h-14 w-auto object-contain"
+            className="h-16 w-auto object-contain transition-transform group-hover:scale-105"
           />
         </Link>
         <nav className="hidden md:flex items-center gap-5 text-[15px] font-medium">
@@ -25,7 +25,7 @@ export function Header() {
           <Link href="/contacts">Контакты</Link>
         </nav>
         <div className="flex items-center gap-2">
-          <a href={site.phoneHref} data-track="phone_click" className="hidden sm:inline font-bold">
+          <a href={site.phoneHref} data-track="phone_click" className="hidden sm:inline font-bold text-sm opacity-80 hover:opacity-100">
             {site.phone}
           </a>
           <Link href="/booking" data-track="cta_click" data-label="header" className="btn-primary !py-2.5 !px-4 !min-h-[44px] text-[15px]">
@@ -47,7 +47,7 @@ export function Footer() {
             alt="Монстр Трек — автосервис"
             width={120}
             height={107}
-            className="h-20 w-auto rounded-xl bg-white p-1 object-contain"
+            className="h-24 w-auto rounded-xl bg-white p-1 object-contain"
           />
           <p className="text-sm mt-2 opacity-80">
             Независимый мультибрендовый автосервис. {site.yearsOnMarket} лет, {site.carsServiced} обслуженных авто, {site.warranty.toLowerCase()} на работы.

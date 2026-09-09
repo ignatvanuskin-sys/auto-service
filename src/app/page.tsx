@@ -19,41 +19,44 @@ export default function Home() {
   return (
     <>
       <Analytics page="/" />
-      <section className="mx-auto max-w-6xl px-4 pt-10 md:pt-16 grid md:grid-cols-2 gap-8 items-center">
-        <div className="grid gap-4">
-          <div className="inline-flex items-center gap-2 text-[13px] font-bold bg-[#e7f5e9] text-[#1e6f2e] rounded-full px-3 py-1.5 w-fit">
-            ● Сегодня есть свободные слоты — запись на сегодня/завтра
+      <section className="hero-grid">
+        <div className="mx-auto max-w-6xl px-4 py-14 md:py-24 grid md:grid-cols-[1.08fr_.92fr] gap-12 items-center">
+        <div className="grid gap-5 hero-reveal">
+          <div className="eyebrow">Монстр Трек · Алматы · с 2018 года</div>
+          <div className="inline-flex items-center gap-2 text-[13px] font-bold bg-[#78b8831c] text-[#9bd6a2] border border-[#78b88340] rounded-full px-3 py-1.5 w-fit">
+            <span className="h-2 w-2 rounded-full bg-[#78b883] shadow-[0_0_12px_#78b883]" /> Сегодня есть свободные слоты
           </div>
-          <h1 className="text-3xl md:text-5xl font-extrabold leading-tight">
-            Диагностика и ремонт — запись на сегодня, без звонков
+          <h1 className="display-title text-5xl md:text-7xl font-black">
+            Уверенность<br /><span className="text-[#c51f35]">за рулём.</span>
           </h1>
-          <p className="text-lg opacity-80">
-            Прозрачная цена-вилка заранее, гарантия до 12 месяцев, фотоотчёт каждого этапа. Онлайн-запись за 60 секунд.
+          <p className="text-lg md:text-xl text-[#aaa19a] max-w-xl">
+            Премиальный сервис для тех, кто ценит свой автомобиль и своё время. Диагностика, ремонт и обслуживание с прозрачной сметой до начала работ.
           </p>
           <div className="flex flex-wrap gap-3">
-            <Link href="/booking" data-track="cta_click" data-label="hero" className="btn-primary text-lg">Записаться онлайн</Link>
-            <a href={site.phoneHref} data-track="phone_click" data-label="hero" className="btn-secondary text-lg">📞 Позвонить</a>
+            <Link href="/booking" data-track="cta_click" data-label="hero" className="btn-primary text-lg">Записаться за 60 секунд <span>↗</span></Link>
+            <a href={site.phoneHref} data-track="phone_click" data-label="hero" className="btn-secondary text-lg">Позвонить</a>
           </div>
           <TrustRow />
         </div>
-        <div className="card p-6 grid gap-3">
-          <div className="font-extrabold text-lg">Ближайшие свободные слоты</div>
+        <div className="card p-7 grid gap-4 hero-reveal-delay">
+          <div className="flex items-start justify-between gap-4"><div><div className="eyebrow">Онлайн-запись</div><div className="font-black text-2xl mt-1">Выберите время</div></div><div className="text-3xl">✦</div></div>
           <div className="grid grid-cols-3 gap-2 text-center font-bold">
             {["10:00", "12:00", "15:00", "16:00", "17:00", "18:00"].map((t) => (
-              <Link key={t} href={`/booking?step=3`} className="border-2 border-[#eee5d8] rounded-xl py-3 hover:border-[#e8590c]">
+              <Link key={t} href={`/booking?step=3`} className="border border-[#ffffff1c] rounded-xl py-3 hover:border-[#c51f35] hover:bg-[#c51f351c]">
                 Сегодня {t}
               </Link>
             ))}
           </div>
-          <p className="text-sm opacity-70">Живой календарь — на шаге 3 записи видно только реально свободное время.</p>
+          <p className="text-sm text-[#aaa19a]">Живой календарь показывает только реальные свободные окна.</p>
           <Link href="/booking" className="btn-primary">Выбрать время →</Link>
+        </div>
         </div>
       </section>
 
       <section className="mx-auto max-w-6xl px-4 mt-14">
         <div className="flex items-end justify-between mb-4">
-          <h2 className="text-2xl font-extrabold">Услуги и цены-вилки</h2>
-          <Link href="/prices" className="font-bold underline">Весь прайс →</Link>
+          <div><div className="eyebrow">Экспертиза без компромиссов</div><h2 className="text-3xl md:text-4xl font-black mt-1">Сервис, которому доверяют</h2></div>
+          <Link href="/prices" className="font-bold text-[#e87383]">Весь прайс →</Link>
         </div>
         <div className="grid md:grid-cols-3 gap-4">
           {SERVICES.slice(0, 6).map((s) => (
