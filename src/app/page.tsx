@@ -59,14 +59,12 @@ export default function Home() {
           <div><div className="eyebrow">Экспертиза без компромиссов</div><h2 className="text-3xl md:text-4xl font-black mt-1">Сервис, которому доверяют</h2></div>
           <Link href="/prices" className="font-bold text-[#e87383]">Весь прайс →</Link>
         </div>
-        <div className="grid md:grid-cols-3 gap-4">
-          {SERVICES.slice(0, 6).map((s) => (
-            <Link key={s.slug} href={`/services/${s.slug}`} className="card p-5 grid gap-2 hover:shadow-lg">
-              <div className="text-[13px] font-bold opacity-60">{s.category}</div>
-              <div className="font-extrabold">{s.name}</div>
-              <div className="text-sm opacity-75">{s.shortDesc}</div>
-              <div className="font-extrabold">от {s.priceMin.toLocaleString("ru-RU")} до {s.priceMax.toLocaleString("ru-RU")} ₸</div>
-              <span className="badge-warranty w-fit">{s.warrantyText}</span>
+        <div className="grid md:grid-cols-2 gap-3">
+          {SERVICES.slice(0, 6).map((s, i) => (
+            <Link key={s.slug} href={`/services/${s.slug}`} className="card group p-6 grid grid-cols-[52px_1fr_auto] gap-4 items-start hover:-translate-y-1">
+              <div className="text-[#c51f35] text-2xl font-black">{String(i + 1).padStart(2, "0")}</div>
+              <div><div className="eyebrow">{s.category}</div><div className="font-black text-lg mt-1">{s.name}</div><div className="text-sm text-[#aaa19a] mt-2 line-clamp-2">{s.shortDesc}</div><div className="font-black mt-4">от {s.priceMin.toLocaleString("ru-RU")} ₸ <span className="text-xs text-[#aaa19a] font-normal">· {Math.round(s.durationMin / 60 * 10) / 10} ч</span></div></div>
+              <div className="text-xl text-[#aaa19a] group-hover:text-[#c51f35] group-hover:translate-x-1 transition-all">↗</div>
             </Link>
           ))}
         </div>
@@ -76,14 +74,8 @@ export default function Home() {
       </section>
 
       <section className="mx-auto max-w-6xl px-4 mt-20">
-        <div className="grid md:grid-cols-[.72fr_1.28fr] gap-10 items-start">
-          <div className="md:sticky md:top-28">
-            <div className="eyebrow">Без сюрпризов</div>
-            <h2 className="text-3xl md:text-4xl font-black mt-2">Вся работа — по понятному плану</h2>
-            <p className="text-[#aaa19a] mt-4">Вы заранее знаете, что произойдёт с автомобилем, сколько займёт каждый этап и когда нужно ваше согласование.</p>
-            <Link href="/booking" className="btn-primary mt-6">Записаться на сервис →</Link>
-          </div>
-          <div className="grid gap-3">
+        <div className="flex items-end justify-between gap-4 mb-8"><div><div className="eyebrow">Без сюрпризов</div><h2 className="text-3xl md:text-4xl font-black mt-2">Вся работа — по понятному плану</h2></div><Link href="/booking" className="hidden md:inline-flex btn-secondary">Записаться →</Link></div>
+        <div className="flex md:grid md:grid-cols-5 gap-3 overflow-x-auto pb-3 snap-x">
             {[
               ["01", "Заявка", "Выбираете услугу и удобное окно онлайн — без звонков и ожидания."],
               ["02", "Диагностика", "Мастер проверяет автомобиль и фиксирует фактическое состояние узлов."],
@@ -91,13 +83,12 @@ export default function Home() {
               ["04", "Ремонт", "Выполняем только согласованный объём на проверенных запчастях."],
               ["05", "Контроль", "Проводим финальную проверку, тест-драйв и выдаём заказ-наряд с гарантией."],
             ].map(([number, title, text]) => (
-              <div key={number} className="card p-5 grid grid-cols-[56px_1fr] gap-4 items-start">
-                <div className="text-[#c51f35] text-xl font-black">{number}</div>
-                <div><div className="font-black text-lg">{title}</div><p className="text-sm text-[#aaa19a] mt-1">{text}</p></div>
+              <div key={number} className="card min-w-[245px] md:min-w-0 p-5 snap-start grid gap-10">
+                <div className="flex justify-between items-start"><div className="text-[#c51f35] text-3xl font-black">{number}</div><div className="text-[#ffffff40]">—</div></div>
+                <div><div className="font-black text-lg">{title}</div><p className="text-sm text-[#aaa19a] mt-2">{text}</p></div>
               </div>
             ))}
           </div>
-        </div>
       </section>
 
       <section className="mx-auto max-w-6xl px-4 mt-14 grid md:grid-cols-3 gap-4">

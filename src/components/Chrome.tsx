@@ -24,6 +24,12 @@ export function Header() {
           <Link href="/about">О нас</Link>
           <Link href="/contacts">Контакты</Link>
         </nav>
+        <details className="md:hidden relative ml-auto">
+          <summary className="list-none cursor-pointer border border-white/15 rounded-lg px-3 py-2 text-sm font-bold">Меню</summary>
+          <div className="absolute right-0 top-12 z-50 w-48 card p-3 grid gap-1 text-sm">
+            <Link href="/services" className="p-2">Услуги</Link><Link href="/prices" className="p-2">Цены</Link><Link href="/cases" className="p-2">Работы</Link><Link href="/reviews" className="p-2">Отзывы</Link><Link href="/contacts" className="p-2">Контакты</Link>
+          </div>
+        </details>
         <div className="flex items-center gap-2">
           <a href={site.phoneHref} data-track="phone_click" className="hidden sm:inline font-bold text-sm opacity-80 hover:opacity-100">
             {site.phone}
@@ -40,7 +46,7 @@ export function Header() {
 export function Footer() {
   return (
     <footer className="mt-16 bg-[#141210] text-[#e9e2d6]">
-      <div className="mx-auto max-w-6xl px-4 py-10 grid gap-8 md:grid-cols-4">
+      <div className="mx-auto max-w-6xl px-4 py-14 grid gap-10 md:grid-cols-[1.2fr_.8fr_.8fr_1fr]">
         <div>
           <Image
             src="/brand/monster-truck-logo.png"
@@ -52,6 +58,7 @@ export function Footer() {
           <p className="text-sm mt-2 opacity-80">
             Независимый мультибрендовый автосервис. {site.yearsOnMarket} лет, {site.carsServiced} обслуженных авто, {site.warranty.toLowerCase()} на работы.
           </p>
+          <Link href="/booking" className="btn-primary mt-5">Записаться на сервис →</Link>
         </div>
         <div className="text-sm">
           <div className="font-bold mb-2">Клиентам</div>
@@ -78,6 +85,8 @@ export function Footer() {
           <p>{site.address}</p>
           <p>{site.hours}</p>
           <p className="mt-1 font-bold">{site.phone}</p>
+          <a href={site.telegramUrl} target="_blank" rel="noreferrer" className="inline-block mt-3 text-[#e87383]">Telegram →</a>
+          <Link href="/privacy" className="block mt-4 text-xs opacity-60">Политика конфиденциальности</Link>
         </div>
       </div>
     </footer>
