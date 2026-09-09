@@ -8,22 +8,22 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
   title: {
-    default: "GearFlow Auto Service — диагностика и ремонт, запись на сегодня без звонков",
-    template: "%s | GearFlow Auto Service",
+    default: "Монстр Трек — премиальный автосервис в Алматы",
+    template: "%s | Монстр Трек",
   },
   description:
-    "Независимый автосервис: ТО, диагностика, ходовая, тормоза, шиномонтаж. Прозрачные цены-вилки, гарантия до 12 месяцев, онлайн-запись за 60 секунд.",
+    "Премиальный автосервис в Алматы: диагностика, ТО, ремонт и онлайн-запись. Прозрачная смета, фотоотчёт и гарантия до 12 месяцев.",
   openGraph: {
-    title: "GearFlow Auto Service — запись на сегодня",
-    description: "ТО и ремонт без звонков: онлайн-запись, прозрачные цены, гарантия.",
+    title: "Монстр Трек — запись на сервис",
+    description: "Диагностика и ремонт без лишних обещаний: прозрачные цены, гарантия и онлайн-запись.",
     type: "website",
     locale: "ru_RU",
-    siteName: "GearFlow Auto Service",
+    siteName: "Монстр Трек",
   },
   twitter: {
     card: "summary",
-    title: "GearFlow Auto Service — запись на сегодня",
-    description: "ТО и ремонт без звонков: онлайн-запись, прозрачные цены, гарантия.",
+    title: "Монстр Трек — запись на сервис",
+    description: "Диагностика и ремонт без лишних обещаний: прозрачные цены, гарантия и онлайн-запись.",
   },
 };
 
