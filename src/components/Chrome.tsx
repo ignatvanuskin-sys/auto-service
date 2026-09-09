@@ -1,20 +1,12 @@
-import Image from "next/image";
 import Link from "next/link";
 import { site } from "@/lib/site";
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-[#eee5d8]">
+    <header className="sticky top-0 z-40 bg-[#f2eee5] border-b border-[#c5c5bb]">
       <div className="mx-auto max-w-6xl px-4 h-[76px] flex items-center justify-between gap-3">
-        <Link href="/" aria-label="Монстр Трек — на главную" className="flex items-center shrink-0 group">
-          <Image
-            src="/brand/monster-truck-logo.png"
-            alt="Монстр Трек — автосервис"
-            width={72}
-            height={64}
-            priority
-            className="h-16 w-auto object-contain transition-transform group-hover:scale-105"
-          />
+        <Link href="/" aria-label="МОТОР+ — на главную" className="flex items-center shrink-0 group">
+          <span className="text-2xl font-black tracking-[-.08em]">МОТОР<span className="text-[#f05a28]">+</span></span>
         </Link>
         <nav className="hidden md:flex items-center gap-5 text-[15px] font-medium">
           <Link href="/services">Услуги</Link>
@@ -26,7 +18,7 @@ export function Header() {
         </nav>
         <details className="md:hidden relative ml-auto">
           <summary className="list-none cursor-pointer border border-white/15 rounded-lg px-3 py-2 text-sm font-bold">Меню</summary>
-          <div className="absolute right-0 top-12 z-50 w-48 card p-3 grid gap-1 text-sm">
+          <div className="absolute right-0 top-12 z-50 w-48 bg-[#f2eee5] border border-[#c5c5bb] p-3 grid gap-1 text-sm">
             <Link href="/services" className="p-2">Услуги</Link><Link href="/prices" className="p-2">Цены</Link><Link href="/cases" className="p-2">Работы</Link><Link href="/reviews" className="p-2">Отзывы</Link><Link href="/contacts" className="p-2">Контакты</Link>
           </div>
         </details>
@@ -48,13 +40,7 @@ export function Footer() {
     <footer className="mt-16 bg-[#141210] text-[#e9e2d6]">
       <div className="mx-auto max-w-6xl px-4 py-14 grid gap-10 md:grid-cols-[1.2fr_.8fr_.8fr_1fr]">
         <div>
-          <Image
-            src="/brand/monster-truck-logo.png"
-            alt="Монстр Трек — автосервис"
-            width={120}
-            height={107}
-            className="h-24 w-auto rounded-xl bg-white p-1 object-contain"
-          />
+          <div className="text-4xl font-black tracking-[-.1em]">МОТОР<span className="text-[#f05a28]">+</span></div>
           <p className="text-sm mt-2 opacity-80">
             Независимый мультибрендовый автосервис. {site.yearsOnMarket} лет, {site.carsServiced} обслуженных авто, {site.warranty.toLowerCase()} на работы.
           </p>

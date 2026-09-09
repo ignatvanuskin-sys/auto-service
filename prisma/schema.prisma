@@ -97,6 +97,13 @@ model BlockedSlot {
 model Lead {
   id             String    @id @default(cuid())
   source         String
+  name           String?
+  phone          String?
+  vehicle        String?
+  serviceType    String?
+  comment        String?
+  preferredTime  String?
+  managerNotes   String?
   rawMessage     String?
   extractedMake  String?
   extractedModel String?

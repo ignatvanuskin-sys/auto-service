@@ -5,6 +5,7 @@ import Link from "next/link";
 import { LogoutButton } from "./logout-button";
 
 const ALL_CARDS: Array<[string, string, string, string[]]> = [
+  ["/admin/requests", "Заявки МОТОР+", "Новые обращения с сайта и статусы обработки", ["owner", "admin"]],
   ["/admin/bookings", "Записи и календарь", "Свои записи и статусы работ", ["owner", "admin", "master"]],
   ["/admin/leads", "Заявки и лиды", "AI-лиды со срочностью, требуют подтверждения", ["owner", "admin"]],
   ["/admin/customers", "Клиенты и авто", "Карточки, история, статусы new/active/dormant", ["owner", "admin"]],

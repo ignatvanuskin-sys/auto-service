@@ -62,6 +62,17 @@ export const leadSchema = z.object({
   urgency: z.enum(["low", "medium", "high"]).default("medium"),
 });
 
+export const requestSchema = z.object({
+  name: z.string().trim().min(2, "Укажите имя").max(80),
+  phone: phoneSchema,
+  vehicle: z.string().trim().min(2, "Укажите марку и модель автомобиля").max(120),
+  serviceType: z.enum(["Диагностика", "Ходовая часть", "Двигатель и АКПП", "Шиномонтаж", "Кузовной ремонт", "ТО", "Другое"]),
+  comment: z.string().trim().max(1200).optional(),
+  preferredTime: z.enum(["Утро", "День", "Вечер"]).optional(),
+  agree: z.literal(true, { message: "Нужно согласие на обработку данных" }),
+  website: z.string().max(100).optional(),
+});
+
 export const reviewSchema = z.object({
   phone: phoneSchema,
   rating: z.number().int().min(1).max(5),
