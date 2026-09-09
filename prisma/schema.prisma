@@ -1,0 +1,167 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Customer {
+  id               String         @id @default(cuid())
+  phone            String         @unique
+  name             String?
+  telegramChatId   String?
+  whatsappId       String?
+  preferredChannel String         @default("telegram")
+  status           String         @default("new")
+  createdAt        DateTime       @default(now())
+  vehicles         Vehicle[]
+  bookings         Booking[]
+  reviews          Review[]
+  notifications    Notification[]
+  leads            Lead[]
+}
+
+model Vehicle {
+  id              String    @id @default(cuid())
+  customerId      String
+  customer        Customer  @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  make            String
+  model           String
+  year            Int?
+  vin             String?
+  mileage         Int?
+  bookings        Booking[]
+  lastServiceAt   DateTime?
+  nextServiceDueAt DateTime?
+}
+
+model Service {
+  id           String    @id @default(cuid())
+  slug         String    @unique
+  category     String
+  name         String
+  shortDesc    String?
+  description  String?
+  priceMin     Int
+  priceMax     Int
+  currency     String    @default("KZT")
+  durationMin  Int       @default(60)
+  warrantyText String?
+  bookings     Booking[]
+}
+
+model Master {
+  id           String        @id @default(cuid())
+  name         String
+  specialties  String[]
+  workingHours Json
+  bookings     Booking[]
+  blockedSlots BlockedSlot[]
+}
+
+model Booking {
+  id          String    @id @default(cuid())
+  customerId  String
+  customer    Customer  @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  vehicleId   String?
+  vehicle     Vehicle?  @relation(fields: [vehicleId], references: [id])
+  serviceId   String?
+  service     Service?  @relation(fields: [serviceId], references: [id])
+  masterId    String?
+  master      Master?   @relation(fields: [masterId], references: [id])
+  problemText String?
+  slotStart   DateTime
+  slotEnd     DateTime
+  status      String    @default("pending")
+  source      String    @default("site")
+  manageToken String    @unique @default(uuid())
+  createdAt   DateTime  @default(now())
+  notifications Notification[]
+
+  @@unique([masterId, slotStart])
+  @@index([slotStart])
+  @@index([status])
+}
+
+model BlockedSlot {
+  id       String   @id @default(cuid())
+  masterId String
+  master   Master   @relation(fields: [masterId], references: [id], onDelete: Cascade)
+  start    DateTime
+  end      DateTime
+  reason   String?
+}
+
+model Lead {
+  id             String    @id @default(cuid())
+  source         String
+  rawMessage     String?
+  extractedMake  String?
+  extractedModel String?
+  urgency        String?
+  status         String    @default("new")
+  customerId     String?
+  customer       Customer? @relation(fields: [customerId], references: [id])
+  createdAt      DateTime  @default(now())
+}
+
+model Review {
+  id          String   @id @default(cuid())
+  customerId  String
+  customer    Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  bookingId   String?
+  rating      Int
+  text        String
+  vehicleInfo String?
+  serviceName String?
+  published   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+}
+
+model Notification {
+  id           String    @id @default(cuid())
+  customerId   String?
+  customer     Customer? @relation(fields: [customerId], references: [id])
+  bookingId    String?
+  booking      Booking?  @relation(fields: [bookingId], references: [id])
+  channel      String
+  type         String
+  status       String    @default("queued")
+  payload      Json
+  scheduledFor DateTime?
+  sentAt       DateTime?
+  createdAt    DateTime  @default(now())
+
+  @@index([bookingId, type])
+}
+
+model AdminUser {
+  id           String @id @default(cuid())
+  email        String @unique
+  passwordHash String
+  role         String @default("admin")
+  masterId     String?
+}
+
+model AnalyticsEvent {
+  id        String   @id @default(cuid())
+  name      String
+  sessionId String?
+  payload   Json?
+  createdAt DateTime @default(now())
+
+  @@index([name])
+}
+
+model OtpCode {
+  id        String   @id @default(cuid())
+  phone     String
+  codeHash  String
+  expiresAt DateTime
+  attempts  Int      @default(0)
+  createdAt DateTime @default(now())
+
+  @@index([phone])
+}

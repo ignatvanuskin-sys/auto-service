@@ -1,26 +1,99 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --gf-accent: #e8590c;
+  --gf-accent-dark: #c94a08;
+  --gf-ink: #141210;
+  --gf-muted: #6b6259;
+  --gf-bg: #faf7f2;
+  --gf-card: #ffffff;
+  --gf-success: #2f9e44;
+  --gf-warn: #f08c00;
+  --gf-error: #e03131;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-gf-accent: var(--gf-accent);
+  --font-sans: var(--font-geist-sans, system-ui, sans-serif);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--gf-bg);
+  color: var(--gf-ink);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.btn-primary {
+  background: var(--gf-accent);
+  color: #fff;
+  font-weight: 700;
+  border-radius: 12px;
+  padding: 14px 22px;
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.btn-primary:hover {
+  background: var(--gf-accent-dark);
+}
+.btn-secondary {
+  border: 2px solid var(--gf-accent);
+  color: var(--gf-accent);
+  font-weight: 700;
+  border-radius: 12px;
+  padding: 12px 20px;
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-ghost {
+  color: var(--gf-muted);
+  font-weight: 600;
+  padding: 12px 16px;
+}
+
+.card {
+  background: var(--gf-card);
+  border-radius: 16px;
+  box-shadow: 0 6px 24px rgba(20, 18, 16, 0.08);
+  border: 1px solid #eee5d8;
+}
+
+.input {
+  width: 100%;
+  border: 2px solid #e5dccf;
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 16px;
+  background: #fff;
+  min-height: 48px;
+}
+.input:focus {
+  outline: none;
+  border-color: var(--gf-accent);
+}
+.input-error {
+  border-color: var(--gf-error);
+}
+.field-error {
+  color: var(--gf-error);
+  font-size: 14px;
+  margin-top: 4px;
+}
+.badge-warranty {
+  background: #e7f5e9;
+  color: #1e6f2e;
+  font-size: 13px;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 4px 12px;
+  display: inline-block;
 }
