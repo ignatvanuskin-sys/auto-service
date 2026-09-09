@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { site } from "@/lib/site";
 
@@ -5,8 +6,15 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 bg-white/95 backdrop-blur border-b border-[#eee5d8]">
       <div className="mx-auto max-w-6xl px-4 h-16 flex items-center justify-between gap-3">
-        <Link href="/" className="font-extrabold text-xl tracking-tight">
-          GearFlow <span style={{ color: "var(--gf-accent)" }}>AI</span>
+        <Link href="/" aria-label="Монстр Трек — на главную" className="flex items-center shrink-0">
+          <Image
+            src="/brand/monster-truck-logo.png"
+            alt="Монстр Трек — автосервис"
+            width={72}
+            height={64}
+            priority
+            className="h-14 w-auto object-contain"
+          />
         </Link>
         <nav className="hidden md:flex items-center gap-5 text-[15px] font-medium">
           <Link href="/services">Услуги</Link>
@@ -34,7 +42,13 @@ export function Footer() {
     <footer className="mt-16 bg-[#141210] text-[#e9e2d6]">
       <div className="mx-auto max-w-6xl px-4 py-10 grid gap-8 md:grid-cols-4">
         <div>
-          <div className="font-extrabold text-lg">{site.shortName}</div>
+          <Image
+            src="/brand/monster-truck-logo.png"
+            alt="Монстр Трек — автосервис"
+            width={120}
+            height={107}
+            className="h-20 w-auto rounded-xl bg-white p-1 object-contain"
+          />
           <p className="text-sm mt-2 opacity-80">
             Независимый мультибрендовый автосервис. {site.yearsOnMarket} лет, {site.carsServiced} обслуженных авто, {site.warranty.toLowerCase()} на работы.
           </p>
