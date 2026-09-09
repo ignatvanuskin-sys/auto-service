@@ -114,7 +114,7 @@ export function TrustRow() {
     <div className="flex flex-wrap gap-2 text-[13px] font-semibold">
       <span className="card px-3 py-1.5">Письменная смета до начала работ</span>
       <span className="card px-3 py-1.5">Гарантия до 12 месяцев</span>
-      <span className="card px-3 py-1.5">Онлайн-запись за 60 секунд</span>
+      <span className="card px-3 py-1.5">Согласование до начала работ</span>
       <span className="badge-warranty">Напоминания о визите и ТО</span>
     </div>
   );
