@@ -11,8 +11,8 @@ import { Analytics } from "@/components/Analytics";
  * SEO: title/description/H1 под интент «автосервис + запись онлайн + гарантия».
  */
 export const metadata = {
-  title: "GearFlow Auto Service — диагностика и ремонт, запись на сегодня без звонков",
-  description: "ТО, диагностика, ходовая, тормоза за 1 день. Цены-вилки заранее, гарантия до 12 месяцев, онлайн-запись за 60 секунд.",
+  title: "Монстр Трек — премиальный автосервис в Алматы",
+  description: "Диагностика, ТО и ремонт с прозрачной сметой до начала работ.",
   alternates: { canonical: "/" },
 };
 
@@ -36,20 +36,16 @@ export default function Home() {
             Премиальный сервис для тех, кто ценит свой автомобиль и своё время. Диагностика, ремонт и обслуживание с прозрачной сметой до начала работ.
           </p>
           <div className="flex flex-wrap gap-3">
-            <Link href="/booking" data-track="cta_click" data-label="hero" className="btn-primary text-lg">Записаться за 60 секунд <span>↗</span></Link>
+            <Link href="/booking" data-track="cta_click" data-label="hero" className="btn-primary text-lg">Записаться на сервис <span>↗</span></Link>
             <a href={site.phoneHref} data-track="phone_click" data-label="hero" className="btn-secondary text-lg">Позвонить</a>
           </div>
           <TrustRow />
         </div>
-        <div className="card p-7 grid gap-4 hero-reveal-delay">
-          <div className="flex items-start justify-between gap-4"><div><div className="eyebrow">Онлайн-запись</div><div className="font-black text-2xl mt-1">Три шага до визита</div></div><div className="text-3xl">✦</div></div>
-          <ol className="grid gap-2 text-[15px] font-medium">
-            <li><b>1.</b> Опишите проблему или выберите услугу</li>
-            <li><b>2.</b> Укажите авто — марка, модель, год</li>
-            <li><b>3.</b> Выберите свободное окно в живом календаре</li>
-          </ol>
-          <p className="text-sm text-[#aaa19a]">Календарь показывает только реально свободное время. Подтверждение и напоминания — в мессенджер.</p>
-          <Link href="/booking" className="btn-primary">Выбрать время →</Link>
+        <div className="hero-side glow-frame p-7 grid gap-5 hero-reveal-delay">
+          <div><div className="eyebrow">Сегодня в сервисе</div><div className="font-black text-2xl mt-1">Свободные окна на обслуживание</div></div>
+          <div className="metal-line"><span>Ближайший визит</span><strong>Выберите удобное время</strong></div>
+          <p className="text-sm text-[#aaa19a]">Без звонков и лишних экранов. Выберите услугу — мы покажем реальные доступные слоты.</p>
+          <Link href="/booking" className="btn-primary">Посмотреть свободные окна <span>↗</span></Link>
         </div>
         </div>
       </section>
@@ -69,7 +65,7 @@ export default function Home() {
           ))}
         </div>
         <div className="mt-6 text-center">
-          <Link href="/booking" className="btn-primary">Записаться онлайн — 60 секунд</Link>
+          <Link href="/booking" className="btn-primary">Выбрать услугу и время</Link>
         </div>
       </section>
 
