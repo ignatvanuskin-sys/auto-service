@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { site } from "@/lib/site";
 
@@ -5,8 +6,8 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 bg-[#f2eee5] border-b border-[#c5c5bb]">
       <div className="mx-auto max-w-6xl px-4 h-[76px] flex items-center justify-between gap-3">
-        <Link href="/" aria-label="МОТОР+ — на главную" className="flex items-center shrink-0 group">
-          <span className="text-2xl font-black tracking-[-.08em]">МОТОР<span className="text-[#f05a28]">+</span></span>
+        <Link href="/" aria-label="Монстр Трек — на главную" className="flex items-center shrink-0 group">
+          <Image src="/brand/monster-truck-logo.png" alt="Монстр Трек — автосервис" width={84} height={70} priority className="h-16 w-auto object-contain" />
         </Link>
         <nav className="hidden md:flex items-center gap-5 text-[15px] font-medium">
           <Link href="/services">Услуги</Link>
@@ -40,7 +41,7 @@ export function Footer() {
     <footer className="mt-16 bg-[#141210] text-[#e9e2d6]">
       <div className="mx-auto max-w-6xl px-4 py-14 grid gap-10 md:grid-cols-[1.2fr_.8fr_.8fr_1fr]">
         <div>
-          <div className="text-4xl font-black tracking-[-.1em]">МОТОР<span className="text-[#f05a28]">+</span></div>
+          <Image src="/brand/monster-truck-logo.png" alt="Монстр Трек — автосервис" width={150} height={132} className="h-24 w-auto object-contain" />
           <p className="text-sm mt-2 opacity-80">
             Независимый мультибрендовый автосервис. {site.yearsOnMarket} лет, {site.carsServiced} обслуженных авто, {site.warranty.toLowerCase()} на работы.
           </p>

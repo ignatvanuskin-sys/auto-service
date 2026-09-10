@@ -8,8 +8,8 @@ function digits(phone: string): string {
 }
 
 export const site = {
-  name: "МОТОР+ — автосервис",
-  shortName: "МОТОР+",
+  name: "Монстр Трек — автосервис",
+  shortName: "Монстр Трек",
   phone: process.env.NEXT_PUBLIC_PHONE ?? "+7 727 310-20-20",
   get phoneHref(): string {
     return `tel:${digits(this.phone)}`;

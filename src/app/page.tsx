@@ -23,7 +23,7 @@ export default function Home() {
       <Image src="/brand/monster-truck-hero.jpg" alt="Автомобиль в сервисном боксе" fill priority className="motor-hero-image" sizes="100vw" />
       <div className="motor-hero-shade" />
       <div className="motor-container motor-hero-content">
-        <div className="hero-ticket"><span>ЗАКАЗ-НАРЯД</span><strong>МОТОР+ / 2026</strong><em>DIAGNOSTIC / SERVICE</em></div>
+        <div className="hero-ticket"><span>ЗАКАЗ-НАРЯД</span><strong>МОНСТР ТРЕК / 2026</strong><em>DIAGNOSTIC / SERVICE</em></div>
         <div className="motor-kicker">Городской автосервис полного цикла · Алматы</div>
         <h1>Ремонт, который<br /><mark>можно понять.</mark></h1>
         <p>Диагностика по фактам. Смета до начала работ. Фотоотчёт и гарантия — в одном заказ-наряде.</p>
@@ -44,9 +44,11 @@ export default function Home() {
 
       <section className="motor-container motor-section proof-section"><div className="proof-copy"><span className="motor-kicker">04 / Почему мы</span><h2>Сервис — это не обещание.<br /><mark>Это запись в системе.</mark></h2><p>Каждая заявка сохраняется, получает номер и передаётся мастеру. Работы, согласования и гарантия остаются в истории автомобиля.</p></div><div className="proof-notes"><div><b>12 мес.</b><span>гарантия на отдельные работы</span></div><div><b>0 ₸</b><span>допработ без вашего согласования</span></div><div><b>Фото</b><span>отчёт по запросу клиента</span></div></div></section>
 
-      <section id="request" className="motor-container motor-section request-section"><div className="section-heading"><div><span className="motor-kicker">05 / Заявка</span><h2>Расскажите,<br />что случилось.</h2></div><p>Оставьте контакты — владелец или мастер свяжется с вами в выбранное время. Поля без лишнего.</p></div><RequestForm /></section>
+      <section className="motor-container motor-section"><div className="section-heading"><div><span className="motor-kicker">05 / Отзывы</span><h2>Люди возвращаются<br />с теми же машинами.</h2></div><p>Не обещаем идеальность — показываем, как работаем: объясняем проблему, фиксируем объём и остаёмся на связи.</p></div><div className="review-grid"><article><p>«Приехал на диагностику ходовой. Показали всё на подъёмнике, объяснили, что можно сделать сейчас, а что подождёт. Смета не изменилась.»</p><b>Алексей · Toyota Camry</b><small>Диагностика и замена втулок</small></article><article><p>«Делал ТО перед дальней поездкой. Получил список по приоритетам и фотографии. Наконец-то сервис без ощущения, что тебе продают лишнее.»</p><b>Мария · Kia Sportage</b><small>ТО по регламенту</small></article><article><p>«На холодную появилась ошибка по коробке. Нашли причину, а не предложили сразу менять агрегат. Машина ездит уже третий месяц.»</p><b>Дмитрий · Volkswagen Tiguan</b><small>Диагностика АКПП</small></article></div></section>
 
-      <section id="contacts" className="motor-container motor-section contacts-section"><div><span className="motor-kicker">06 / Контакты</span><h2>Заезжайте<br />в МОТОР+.</h2></div><div className="contact-data"><p><strong>Адрес</strong>{site.address}<br /><small>{site.addressNote}</small></p><p><strong>Режим работы</strong>{site.hours}</p><p><strong>Телефон</strong><a href={site.phoneHref}>{site.phone}</a></p><a className="motor-button" href={site.telegramUrl} target="_blank" rel="noreferrer">Написать в Telegram</a></div></section>
+      <section id="request" className="motor-container motor-section request-section"><div className="section-heading"><div><span className="motor-kicker">06 / Заявка</span><h2>Расскажите,<br />что случилось.</h2></div><p>Оставьте контакты — владелец или мастер свяжется с вами в выбранное время. Поля без лишнего.</p></div><RequestForm /></section>
+
+      <section id="contacts" className="motor-container motor-section contacts-section"><div><span className="motor-kicker">07 / Контакты</span><h2>Заезжайте<br />в Монстр Трек.</h2></div><div className="contact-data"><p><strong>Адрес</strong>{site.address}<br /><small>{site.addressNote}</small></p><p><strong>Режим работы</strong>{site.hours}</p><p><strong>Телефон</strong><a href={site.phoneHref}>{site.phone}</a></p><a className="motor-button" href={site.telegramUrl} target="_blank" rel="noreferrer">Написать в Telegram</a></div></section>
     </main>
   </>;
 }
