@@ -5,7 +5,7 @@ import { site } from "@/lib/site";
 import { Analytics } from "@/components/Analytics";
 import { RequestForm } from "@/components/RequestForm";
 
-export const metadata = { title: "МОТОР+ — автосервис полного цикла", description: "Диагностика, ремонт, шиномонтаж и ТО с понятной сметой до начала работ.", alternates: { canonical: "/" } };
+export const metadata = { title: "Монстр Трек — автосервис полного цикла", description: "Диагностика, ремонт, шиномонтаж и ТО с понятной сметой до начала работ.", alternates: { canonical: "/" } };
 
 const serviceGroups = [
   ["01", "Диагностика", "Находим причину неисправности, а не меняем детали наугад.", "От 5 000 ₸"],
