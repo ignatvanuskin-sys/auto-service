@@ -1,56 +1,35 @@
 import type { Metadata } from "next";
-import { Header, Footer, StickyMobileBar } from "@/components/Chrome";
-import { AiWidget } from "@/components/AiWidget";
-import { ClickTracker } from "@/components/Analytics";
+import Image from "next/image";
+import Link from "next/link";
 import { site } from "@/lib/site";
 import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
-  title: {
-    default: "Монстр Трек — автосервис полного цикла в Алматы",
-    template: "%s | Монстр Трек",
-  },
-  description:
-    "Монстр Трек — городской мультибрендовый автосервис: диагностика, ТО, ремонт ходовой, двигателя, АКПП и шиномонтаж.",
-  openGraph: {
-    title: "Монстр Трек — запись на диагностику",
-    description: "Понятная смета, согласование работ и гарантия на результат.",
-    type: "website",
-    locale: "ru_RU",
-    siteName: "Монстр Трек",
-  },
-  twitter: {
-    card: "summary",
-    title: "Монстр Трек — запись на диагностику",
-    description: "Понятная смета, согласование работ и гарантия на результат.",
-  },
+  title: { default: "Монстр Трек — автосервис", template: "%s | Монстр Трек" },
+  description: "Честная диагностика, ремонт ходовой и кузовной SMART-ремонт в Алматы.",
+  openGraph: { title: "Монстр Трек — автосервис", description: "Смета до начала работ. Гарантия на результат.", type: "website", locale: "ru_RU" },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const schema = { "@context": "https://schema.org", "@type": "AutoRepair", name: site.name, telephone: site.phone, address: { "@type": "PostalAddress", streetAddress: site.address, addressLocality: "Алматы" } };
   return (
     <html lang="ru">
-      <body className="min-h-full flex flex-col">
-        <Header />
-        <main className="flex-1 pb-20 md:pb-0">{children}</main>
-        <Footer />
-        <StickyMobileBar />
-        <AiWidget />
-        <ClickTracker />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "AutoRepair",
-              name: site.name,
-              address: { "@type": "PostalAddress", streetAddress: "ул. Рыскулова, 62", addressLocality: "Алматы" },
-              telephone: site.phone,
-              openingHours: site.hoursSchema,
-              aggregateRating: { "@type": "AggregateRating", ratingValue: site.rating, reviewCount: site.reviewCount.replace(/\s/g, "") },
-            }),
-          }}
-        />
+      <body>
+        <div className="hotbar">Экстренный вопрос по автомобилю? <a href={site.phoneHref}>Позвонить мастеру {site.phone}</a></div>
+        <header className="site-header"><div className="clean-container header-inner">
+          <Link href="/" className="brand"><Image src="/brand/monster-truck-logo.png" alt="Монстр Трек" width={84} height={70} priority /></Link>
+          <nav><Link href="/">Главная</Link><a href="/#services">Услуги</a><a href="/#prices">Цены</a><a href="/#contacts">Контакты</a></nav>
+          <div className="header-actions"><a href="#request" className="estimate-button">Рассчитать смету</a><a href="#request" className="orange-button small-button">Записаться</a></div>
+        </div></header>
+        <main>{children}</main>
+        <footer className="site-footer"><div className="clean-container footer-inner">
+          <Image src="/brand/monster-truck-logo.png" alt="Монстр Трек" width={120} height={100} />
+          <p>Городской мультибрендовый автосервис.<br />Диагностика, ремонт и обслуживание.</p>
+          <div><b>{site.phone}</b><br />{site.address}<br />{site.hours}</div>
+          <small>© 2026 Монстр Трек · <Link href="/privacy">Политика конфиденциальности</Link></small>
+        </div></footer>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
       </body>
     </html>
   );
